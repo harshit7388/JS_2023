@@ -1,0 +1,41 @@
+const p = new Promise((resolve, reject)=>{
+    setTimeout(()=>{
+        resolve("getting resolved")
+    }, 3000)
+})
+
+
+
+//part 1
+
+// function handlePromise(){
+// p.then((val)=>{
+// console.log(val)
+// })
+// console.log("middle data")
+
+// }
+// handlePromise();
+
+
+// part 2 
+async function handlePromise(){
+const val = await p;
+console.log(val)
+
+console.log("middle data")
+
+}
+handlePromise();
+
+/* in part 1, it is normal way of handling the promise, the log statement with "middle data" will be 
+printed first, and will not wait for the promise to be resolved.
+firstly "middle data" will be printed and then after 3 sec, the promised resolved statement will be logged.
+
+in part 2 , we have used async - await, which will hold the "middle data" statement to get logged 
+until promise gets resolved.
+after 3 seconds , firstly the promised resolve statement will be logged, and then along with it
+"middle data" statement will be printed without any delay.
+
+this is what async await does, it hold the exectution unitl promise gets resolved.
+*/
