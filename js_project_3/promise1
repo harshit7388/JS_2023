@@ -39,16 +39,4 @@ async function handlePromise(){
 }
 handlePromise();
 
-/* 2 promises , one havibg time of 5 sec and another having time of 10sec. promise p1 and p2 are the two 
-promises.
-p1 is called first , then p2 is called .
-then according to basic execution criteria, the p1 promised having time of 5sec will be logged and then 
-p2 with time of 10sec will be logged.
 
-but if we change the exection time , that is settimeout() values to for p1 10 sec and for p2 5 sec,
- then both the promises will be logged together after 10 sec, that means even if 1 promised is having 
- time of 5 seconds, the other prior promise with 10 sec time,is holding the exection of the other promise.
- 
-
-
-*/
