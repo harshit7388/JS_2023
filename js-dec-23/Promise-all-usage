@@ -1,0 +1,35 @@
+function promiseTest(name, delay){
+  return new Promise((resolve, reject)=>{
+    setTimeout(() => {
+        resolve(`${name}`)
+    }, delay);
+  })
+
+}
+
+
+const p1 = promiseTest("ram", 1000)
+const p2 = promiseTest("john",2000)
+const p3 = promiseTest("sam", 1500)
+const p4 = promiseTest("jam", 3000)
+
+const p5 = Promise.reject("error")
+
+Promise.all([p1,p2,p3,p4]).then((res)=>console.log(res)).catch((err)=>{console.log(err)})
+
+Promise.all([p1,p2,p3,p4,p5]).then((res)=>console.log(res)).catch((err)=>{console.log(err)})
+
+/*
+promise.all() aggregates all the promises result and instead of executing each promise as a separate 
+statement, .all() helps to execute all at once.
+Promise.all() takes an array of input as promises and returns a single promise. It finally gets fulfilled
+when all the input promises are fulfilled.  
+
+
+Promise.all([p1,p2,p3,p4,p5]).then((res)=>console.log(res)).catch((err)=>{console.log(err)})
+
+for the above Promise.all() the result of p1,p2,p3,p4 will be printed as an array.
+
+Also if any of the promises gets rejected, the complete Promise.all() gets into rejected state and gives the error.
+
+*/ 
